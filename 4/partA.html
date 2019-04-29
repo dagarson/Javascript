@@ -1,0 +1,43 @@
+<!doctype html>
+
+<!--Daniel Garson 
+CIS 174 
+Project #6-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>partA</title>
+
+<script>
+
+function myfunction(){
+//variable for count of fibonacci
+var num = document.getElementById("myText").value;
+//variables for calculation
+var var1 = 0;
+var var2 = 1;
+var var3;
+//first two variables 0 and 1 print to user
+document.write(var1+"<br/>");
+document.write(var2+"<br/>");
+
+//for loop to continue sequence
+for(var i=3;i<=num;i++){
+var3 = var1 +var2;
+var1 =var2;
+var2 =var3;
+document.write(var3+"<br/>");
+}
+ }
+ 
+ </script>
+
+
+</head>
+
+<body>
+Enter a count of numbers in the Fibonacci series: <input type="text" id="myText" value="1"><br>
+<button onclick="myfunction()">Try it</button>
+
+</body>
+</html>

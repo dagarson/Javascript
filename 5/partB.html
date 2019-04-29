@@ -1,0 +1,66 @@
+<!doctype html>
+
+<!--Daniel Garson 
+CIS 174 
+Project #8-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>partB</title>
+
+<script type="text/javascript">
+
+	
+	var birth;
+	//prompt for users birthday in YYYY/MM/DD format then get the current date and set that to bithday and get the difference
+	birth = new Date(prompt("What is your birthday? (use the format YYYY/MM/DD"));
+	var current = new Date();
+	 var diff = current.getTime() - birth.getTime();
+  
+  // math for getting whole years
+  var years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+ 
+	// math for getting months
+   var month = (diff / (1000 * 60 * 60 * 24 * 365.25));
+  month = month %1*12;
+  var roundmonth = Math.round( month* 10 ) / 10;
+  
+  // math for getting whole days
+   var days = (diff / (1000 * 60 * 60 * 24 * 365.25));
+	days = Math.floor(days %1*365);
+	
+	// math for getting weeks
+	var weeks = (diff / (1000));
+    weeks = Math.floor(weeks / 604800);
+   
+   // math for getting just days
+   var fulldays = (diff /(1000));
+   fulldays = Math.floor(fulldays / 86400);
+   
+   // math for getting just seconds
+   var seconds = Math.floor(diff / (1000));
+   
+  
+	
+ 
+
+   
+   //print out years, months and days since born
+ document.write(" • You are: " +years + " Years " +roundmonth+ " Months " +  days+ " Days old");
+ //print out weeks and days since born
+ document.write("<br> • You are "+ weeks+ " Weeks and "+ days+" Days old ");
+ //print out just days since born
+ document.write("<br> • You are " +fulldays+" Days old");
+ //print out seconds since born
+ document.write("<br> • You are roughly " +seconds+ " Seconds old");
+	
+	
+ </script>
+
+
+</head>
+
+<body>
+
+</body>
+</html>

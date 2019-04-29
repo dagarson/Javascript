@@ -1,0 +1,132 @@
+<!doctype html>
+
+<!--Daniel Garson 
+CIS 174 
+Project #7-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>partD</title>
+
+<!--Stylesheet for program-->
+<style>
+body {
+    background-color: green;
+}
+
+#main{
+	width: 75%;
+	margin-right: auto;
+	margin-left: auto;
+	background-color:#f27979;
+ 
+
+}
+
+#dealer_hand{
+text-align:right;
+padding-right:30px;
+margin-top:-70px;}
+#dealer_value{
+text-align:right;
+padding-right:30px;}
+#status{
+margin-top:20px;}
+#status{
+text-align:center;
+font-size:55px;
+color:red;
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="main">
+<!--User interface-->
+<h1 style="text-align:center;">Welcome to BlackJack <h1> 
+<h3 style="text-align:center;">To hit press the Hit Me button, to start a new hand press the deal button<h3> 
+<h3 style="text-align:center;">The Player Cards and Player Hand value are your starting hand.<h3>
+<h3 style="text-align:center;"> The New player Cards and New Player Value are your new hand after you hit.<h3> 
+<h3 style="text-align:center;">If you go over 21 you will Bust or lose.<h3> 
+<!--Stores the players cards and the value of those cards along with the new value once hit-->
+<h2 style="padding-top:20px;">Player Cards</h2>
+<div id="player_hand"></div>
+<h2>Player Hand value</h2>
+<div id="player_value"></div>
+<h2 style="padding-bottom:-100px">New Player Cards</h2>
+<div id="new_player_hand"></div>
+<h2> New Player Value</h2>
+<div id="new_player_value"></div>
+<!--Stores dealers cards and value of those cards-->
+<h2 style="text-align:right;margin-bottom:100px;margin-top:-250px;padding-right:30px;">Dealer Cards</h2>
+<div id="dealer_hand"></div>
+<h2 style="text-align:right;padding-right:30px;">Dealer Hand value</h2>
+<div id="dealer_value"></div>
+
+<br><br><br><br><br>
+<!--Hit me button and deal(new game) buttons-->
+<center><button onclick="hit()">Hit Me</button>
+<button onclick="deal()">Deal</button></center>
+<br>
+<!--Informs the player if they bust(lost)-->
+<div id="status"></div>
+
+<script>
+
+
+	var player;
+	var dealer;
+	var deck = [2,3,4,5,6,7,8,9,10,10,10,10,11,
+				2,3,4,5,6,7,8,9,10,10,10,10,11,
+				2,3,4,5,6,7,8,9,10,10,10,10,11,
+				2,3,4,5,6,7,8,9,10,10,10,10,11];
+		
+	//function for drawing new cards from the deck
+	function drawRandom(deck){
+	var randomIndex = Math.floor((deck.length * Math.random()));
+	return deck[randomIndex]
+}
+
+	//asigns cards to both player and dealer
+	function startGame(){
+	player = [drawRandom(deck), drawRandom(deck)];
+	dealer = [drawRandom(deck), drawRandom(deck)];
+	
+	}
+	//function used to get hands sum
+	function getHand(hand){
+	var sum = 0;
+	for(var i=0;i<hand.length;i++){
+	sum+=hand[i];
+	}
+	return sum;
+}
+	startGame();
+		
+	//function for if hit button is clicked player draws card from the deck
+	function hit(){
+	player.push(drawRandom(deck));
+	document.getElementById("new_player_hand").innerHTML = player;
+	document.getElementById("new_player_value").innerHTML = getHand(player);
+	
+	//if players hand is greater than 21 they have gone bust(lost)
+	if(getHand(player)>21){
+	document.getElementById("status").innerHTML = "BUST";
+	}
+}
+	//send to user
+	document.getElementById("player_hand").innerHTML = player;
+	document.getElementById("player_value").innerHTML = getHand(player);
+	document.getElementById("dealer_hand").innerHTML = dealer;
+	document.getElementById("dealer_value").innerHTML = getHand(dealer);
+	
+	//function will restart the game
+	function deal(){
+    window.location.reload();
+} 
+ </script>
+</div>
+</body>
+</html>

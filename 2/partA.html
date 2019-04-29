@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+	<!-- Daniel Garson
+		CIS 174
+		Due: 10/14/18-->
+<head>
+	<meta charset="utf-8">
+	<title>partA</title>
+	<script src="ToolBox.js"></script>
+	<script>
+	//create function 
+		function compareMoney(){
+			
+			var msg = "";
+			
+			// get value from the user
+			var userAmount = parseFloat(document.getElementById("userAmount").value);
+			// declare gpd variable and conversion formula
+			var gpd = userAmount *.75;
+			
+			
+			// If  greater than or equal to 1,000 dollars
+			if (userAmount >= 1000){
+				msg += "$"+ formatMoney(userAmount) + 
+					   " dollars is a lot of money to exchange $"+ formatMoney(userAmount) +
+					   " US will be £"+ gpd
+			}
+				//else message
+			else {
+				msg += "$" + formatMoney(userAmount) + 
+					   " US is £" + gpd + " have a nice day."
+			}
+			
+			document.getElementById("outputDiv").innerHTML = msg;
+		}  
+		
+	</script>	
+</head>
+<body>
+	
+How many dollars do you have to exchange for British Pounds?<br> <input type="text" name="userAmount" id="userAmount" value="1000"><br>
+<input type="button" onclick="compareMoney();" value="Dollar to Pound conversion">
+<div id="outputDiv"></div>
+</body>
+</html>

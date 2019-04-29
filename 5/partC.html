@@ -1,0 +1,84 @@
+<!doctype html>
+
+<!--Daniel Garson 
+CIS 174 
+Project #7-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>partC</title>
+<head>
+
+<script>
+
+	//array of words
+	var randomWordArr = ["javascript","code","program","function","variable","loop","array","class","diagram"];
+	
+	//gets a random word from the array
+	var randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
+
+	var s;
+	var count = 0;
+	
+	//array stores guess
+	var answerArray = [];
+	
+		//fills array with asterisk marks
+		function startUp()
+		{
+		
+			for( var i =0; i <randomWord.length;i++)
+				{
+				answerArray[i] = "*";
+				}
+				
+		s = answerArray.join(" ");
+		document.getElementById("answer").innerHTML = s;
+			
+		}
+		
+		//used to get the letter that the user typed and put in the place of the asterisk.
+		function Letter(){
+		
+		var letter = document.getElementById("letter").value;
+		
+			if(letter.length > 0)
+			{
+				for(var i =0;i<randomWord.length;i++)
+				{
+					if(randomWord[i] === letter)
+					{
+						answerArray[i] = letter;
+					}
+			
+				}
+			
+			//increases the number of guesses
+			count++;
+			document.getElementById("counter").innerHTML = "Number of tries " + count;
+			document.getElementById("answer").innerHTML = answerArray.join(" ");
+			}
+		}
+		
+		//function used to run the restart button refreshing the program and getting a new word
+		function reset()
+		{
+			window.location.reload(false); 
+		}
+			
+</script>
+
+
+</head>
+
+ <body onload="startUp()"> 
+ <h1>Guessing Game</h1>
+ <h2>Guess a letter or press the restart button to reset the program and get a new word</h2>
+ <input id="letter" type="text">
+ <input type="button" value="Guess" onclick="Letter()"/>
+ <input type="button" value="Restart" onclick="reset()"/>
+ <p id="answer"></p>
+ <p id="counter"></p>
+
+</body>
+</html>

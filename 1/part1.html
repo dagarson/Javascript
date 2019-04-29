@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+	<!-- Daniel Garson
+	due 10/7/18
+	CIS 174-->
+<head>
+	<meta charset="utf-8">
+	<title>3Part1</title>
+	
+
+	<script>
+	function main(){
+	
+		
+		getRandom(getValue());
+	} 
+	
+	function getValue(){		//get number of dice prompt
+		var Die = parseInt(window.prompt( "Number of random Dice?", "Dice Number"));
+		// return the dice
+		return Die;
+	} 
+	//function to get random number of dice
+	function getRandom(numbDie){
+		
+		var dice = "";
+		for (i = 0; i < numbDie; i++){
+			var ranNumber = Math.floor(Math.random()*6);
+			
+			switch(ranNumber) {
+			//start switch case for number of dice
+    			case 0:
+					dice += 1;
+					break;
+    			case 1:
+					dice += 2;
+					break;
+				case 2:
+					dice += 3;
+					break;
+				case 3:
+					dice += 4;
+					break;
+				case 4:
+					dice += 5;
+					break
+				case 5:
+					dice += 6;
+				//end of switch case	
+				
+			} 
+			dice += " "
+		} //end loop
+		
+		
+		document.getElementById("outputDiv").innerHTML = dice;
+	} 
+	</script>	
+</head>
+	<!--load main on startup-->
+<body onload="main();">
+<div id="outputDiv"></div>	
+</body>
+</html>

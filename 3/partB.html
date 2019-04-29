@@ -1,0 +1,53 @@
+<!doctype html>
+<!--Daniel Garson 
+	CIS 174
+	Due: 10/21/18-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>partB</title>
+<script>
+
+function myFunction() {
+
+	//variable to store month from user
+    var userMonth = document.getElementById("myText").value;
+	
+	//format month to make conditional statement easier(first three letters)
+	 var formatMonth = userMonth.substring(0, 3);
+	 
+	 //Winter Month
+	 if(	(formatMonth =="Dec")||(formatMonth =="Jan")|| (formatMonth =="Feb")){
+	 document.getElementById("demo").innerHTML = userMonth + " is a Winter Month";
+	 }
+	
+	 //Spring Month
+	 if(	(formatMonth =="Mar")||(formatMonth =="Apr")|| (formatMonth =="May")){
+	 document.getElementById("demo").innerHTML = userMonth + " is a Spring Month";
+	 }
+	
+	 //Summer Month
+    if(	(formatMonth =="Jun")||(formatMonth =="Jul")|| (formatMonth =="Aug")){
+	 document.getElementById("demo").innerHTML = userMonth + " is a Summer Month";
+	 }
+	 
+	  //Fall Month
+	  if(	(formatMonth =="Sep")||(formatMonth =="Oct")|| (formatMonth =="Nov")){
+	 document.getElementById("demo").innerHTML = userMonth + " is a Fall Month";
+	 }
+	 
+
+}
+</script>
+
+</head>
+
+<body>
+Enter a month: <input type="text" id="myText" value="January"><br>
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+
+</body>
+</html>

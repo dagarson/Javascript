@@ -1,0 +1,81 @@
+<!doctype html>
+
+<!--Daniel Garson 
+	CIS 174
+	Due: 10/21/18-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>partA</title>
+
+<script>
+	//**moved the location of validation to the bottom
+	function grade(){
+	
+			//set variables based on user input
+			var readingScore = parseInt(document.getElementById("readingScore").value);
+			var mathLevel = parseInt(document.getElementById("mathLevel").value);
+		
+			
+			//variable calcuates total reading score
+			var totalScore = +readingScore + +mathLevel;
+			
+			
+			//check for unconditional admission
+			if(totalScore >=1200){
+			document.write("unconditional admission");
+			}
+			
+			//nested if check for provisional admission
+			//***changed to else if to avoid getting both unconditional and provisional admission***
+			else if (totalScore >=1000){
+				if (readingScore >= 600 ||mathLevel>=600){
+			document.write("provisional admission");
+			} 
+			//check for probationary admission
+			else if(totalScore >=1000){
+			document.write("probationary admission");
+			} //no admission
+			}  else {
+			document.write("no admission");
+				}
+				
+			//test for valid Reading score
+			//**added in a call for the reset function so if the reading score is less than 200
+			//**or greater than 800 the function will be called***
+			
+			if(readingScore<200||readingScore>800){
+			alert("Invalid Reading Score please try again");
+			reset();
+		
+			}
+			
+			//test for valid Math score
+			//**added in a call for the reset function so if the math score is less than 200
+			//**or greater than 800 the function will be called***
+			if(mathLevel < 200||mathLevel > 800){
+			alert("Invalid Math Score please try again");
+			test();
+		
+			}
+		}
+			//*** function will reset the entire program if called for
+			//***validation purposes****
+			function reset(){
+			window.location.reload(false); 
+			}
+		
+		
+	
+		
+</script>
+
+</head>
+
+<body>
+Critical reading score: <input type="text" id="readingScore" value="0">	<br>
+Math Score:  <input type="text" id="mathLevel" value="0">	<br>
+<button onclick="grade()">Admission</button>
+
+</body>
+</html>

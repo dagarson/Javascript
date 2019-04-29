@@ -1,0 +1,60 @@
+<!doctype html>
+<!--Daniel Garson
+	due 10/7/18
+	CIS 174-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Coins</title>
+<script>
+function moneyBreakdown(money){
+
+	// create variables
+	var remainder = money; var quarter = 0;var dime = 0; var nickel = 0;
+	
+	// quarter quantity
+	if (remainder >= .25) {
+		quarter = parseInt(remainder / .25);
+		remainder = remainder % .25;
+	}
+	
+	// dime quantity
+	if (remainder >= .10) {
+		dime = parseInt(remainder /.10);
+		remainder = remainder % .10;
+	}
+		
+	// nickel quantity
+	if(remainder >=.05){
+	nickel =parseInt(remainder/.05);
+	remainder = remainder%.05;
+	}
+	
+	//pennies quantity
+	if(remainder >=.01){
+	pennies =parseInt(Math.round(remainder /.01));
+	remainder = remainder%.01;
+	}
+	
+	// output to user
+	var msg = "You entered  " + money;
+	msg += " dollars, that would be <br>";
+	msg += quarter + " quarters, " + dime + " dimes, " + nickel +" nickels and " + pennies + " pennies.";
+	
+	
+	
+	document.getElementById("outputDiv").innerHTML = msg;
+
+} 
+</script>	
+</head>
+<body>
+<div id="outputDiv"></div>
+<script>
+	// get the dollars from the user
+	var moneys = window.prompt("How much money do you have enter dollars and cent ?", " EX: 1.43")
+	// call function
+	moneyBreakdown(moneys);
+</script>
+</body>
+</html>

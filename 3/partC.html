@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>partC</title>
+
+
+<script>
+function planetFunction() {
+	//planet variable display as a prompt
+    var planet = prompt("Please enter a Planet", planet);
+	
+	
+
+	//switch case starts
+	//***added to uppercase to make program easier to use***
+	switch (planet.toUpperCase()) {
+	
+	//Mercury
+	 case "MERCURY":
+       document.write("Mercury 3.301×10^23 kg");
+        break;
+	
+	//Venus
+	 case "VENUS":
+       document.write("Venus 4.867×10^24 kg");
+        break;
+		
+	//Earth
+	 case "EARTH":
+       document.write("Earth 6.046×10^24 kg");
+        break;
+	
+	//Mars
+    case "MARS":
+       document.write("Mars 6.417×10^23 kg");
+        break;
+		
+	//Jupiter
+	 case "JUPITOR":
+       document.write("Jupiter 1.899×10^27 kg");
+        break;
+		
+	//Saturn
+	 case "SATURN":
+       document.write("Saturn 5.685×10^26 kg");
+        break;
+	
+	//Uranus
+	 case "URANUS":
+       document.write("Uranus 8.682×10^25 kg");
+        break;
+	
+	//Neptune
+	 case "NEPTUNE":
+       document.write("Neptune 1.024×10^26 kg");
+        break;
+	
+	//Pluto
+	 case "PLUTO":
+       document.write("Pluto 1.309×10^22 kg");
+        break;
+	//Default case if none of the planets were entered.
+	default:
+       document.write("Not a valid input please try again.");
+   
+}
+}
+</script>
+</head>
+
+<body>
+<p>Click the button to begin mass of the planets program.</p>
+
+<button onclick="planetFunction()">Try it</button>
+<p id="demo"></p>
+
+</body>
+</html>

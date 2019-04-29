@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+	<!--Daniel Garson 
+		CIS 174
+		Due: 10/14/18-->
+<head>
+	<meta charset="utf-8">
+	<title>partB</title>
+	<script src="ToolBox.js"></script>
+	<script>
+		//declare grade function
+		function grade(){
+			
+			var msg = "";
+			
+			// get value from the user
+			var userAmount = parseInt(document.getElementById("userAmount").value);
+			
+			
+			
+			
+			// if grade is over or equal to 90 but less than or equal to 100(grade cant be higher)
+			if (userAmount >= 90 && userAmount <=100){
+				msg += "A score of "+ userAmount +" is an excellent grade. Great job!"
+			} 
+			//if grade is between 76 and 90
+			if (userAmount >=76 && userAmount < 90) {
+				msg += "With a score of "+ userAmount +" you did pretty good."
+			}
+			//if grade is less than or equal to 75
+			if (userAmount <=75){
+				msg += "You may want to try harder next time because you only scored "+ userAmount
+			} 
+		
+			
+			
+			document.getElementById("outputDiv").innerHTML = msg;
+		}  
+		
+	</script>	
+</head>
+<body>
+	
+What is the students grade?<br> <input type="text" name="userAmount" id="userAmount" value="100"><br>
+<input type="button" onclick="grade();" value="Student's Grade">
+<div id="outputDiv"></div>
+</body>
+</html>

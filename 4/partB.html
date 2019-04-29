@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!--Daniel Garson 
+	CIS 174 
+	Project #6-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
+	<title>PartB</title>
+	
+	<!--Styles used for table-->
+	<style>
+		table, tr, td{
+			border: 1px solid black;
+		}
+		tr:nth-child(even) {background: #7aa7ef}
+		tr:nth-child(odd) {background: #ef7c7a}
+	</style>
+
+	<script>
+	function weightTable(){
+	
+		//variables for current weight, goal weight and pounds per week.
+		 var weight = document.getElementById("n1").value;
+          var goal = document.getElementById("n2").value;
+         var ppw = document.getElementById("n3").value;
+
+		
+		
+		//increment weeks
+		var weeks = 1
+	
+		// table header
+		var msg = "<table><tr><th>Weeks</th><th>Weight</th></tr>";
+		// build the rest of the table
+				//while loop while goal is less then weight
+          while (weight> goal)
+          {
+				
+               //increment weight subtranting pounds per week    
+              weight=weight-ppw;
+			  
+				//output message
+				msg += "<tr><td>" + weeks + "</td>";
+				msg += "<td>" + weight + "</td></tr>"; 
+				weeks++;
+			  
+			
+		
+          }
+		 msg +=  "</table>";
+		document.getElementById("outputDiv").innerHTML = msg;
+	} 
+	</script>
+</head>
+<body>
+	Initial Weight<input type="text" name="n1" id="n1"><br>
+Goal Weight <input type="text" name="n2" id="n2"><br>
+Pounds per Week <input type="text" name="n3" id="n3"><br>
+	<button type="button" onclick="weightTable();">
+		Calculate</button>
+	<div id="outputDiv"></div>
+</body>
+</html>
